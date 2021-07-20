@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "slack-api"
+version = "0.1.0"
+description = "A test description"
+authors = ["pierce.faraone <pierce.faraone@circles.asia>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+slack-sdk = "^3.8.0"
+slackclient = "^2.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.9.2"
+autopep8 = "^1.5.7"
+pytest-cov = "^2.12.1"
+pre-commit = "^2.13.0"
+mypy = "^0.910"
+isort = "^5.9.2"
+black = { version = "^21.7b0", allow-prereleases = true }
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
+
+[tool.black]
+line-length = 79
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
